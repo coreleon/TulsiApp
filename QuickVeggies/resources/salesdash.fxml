@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="690.0" stylesheets="@css/center_table_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="Title" layoutX="14.0" layoutY="49.0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+               <Pane fx:id="paneSettingButtons" layoutX="499.0" layoutY="311.0" prefHeight="43.0" prefWidth="188.0" style="-fx-background-color: transparent;">
+         <children>
+            <Button fx:id="btnColSettings" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="48.0" style="-fx-background-color: transparent;" text="Button" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/gear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnPrint" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="69.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="48.0" style="-fx-background-color: transparent;" text="Button" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/print.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnExport" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="123.0" layoutY="2.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="48.0" style="-fx-background-color: transparent;" text="Button" textOverrun="CLIP">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/export.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Button fx:id="newTrans" layoutX="371.0" layoutY="322.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="New Transaction" />
+      <ComboBox fx:id="filterSelection" layoutX="14.0" layoutY="322.0" prefHeight="25.0" prefWidth="103.0" promptText="Filter" />
+      <Label layoutX="131.0" layoutY="328.0" text="last 365 days" />
+      <BarChart fx:id="arrivalBarChart" layoutX="14.0" layoutY="41.0" prefHeight="280.0" prefWidth="484.0" style="-fx-background-color: gray;">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <Label fx:id="Title1" layoutX="14.0" layoutY="14.0" text="Arrival">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Pane layoutX="499.0" layoutY="41.0" prefHeight="75.0" prefWidth="185.0" style="-fx-background-color: #0099ff;">
+         <children>
+            <Label layoutX="13.0" layoutY="13.0" text="Turnover (Gross amount)">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="39.0" text="Rs.">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="turnover" layoutX="44.0" layoutY="39.0" text="000">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="499.0" layoutY="124.0" prefHeight="75.0" prefWidth="185.0" style="-fx-background-color: #0099ff;">
+         <children>
+            <Label layoutX="13.0" layoutY="13.0" text="Total Cases">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalCases" layoutX="13.0" layoutY="39.0" text="000">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ScrollPane layoutY="353.0" prefHeight="273.0" prefWidth="690.0">
+         <content>
+            <TableView fx:id="salesDashTable" prefHeight="229.0" prefWidth="686.0" />
+         </content>
+      </ScrollPane>
+      <TableView id="tableTotal" fx:id="tableTotal" layoutX="2.0" layoutY="583.0" prefHeight="26.0" prefWidth="684.0" stylesheets="@css/style.css" />
+   </children>
+</AnchorPane>

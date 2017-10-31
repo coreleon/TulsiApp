@@ -1,0 +1,347 @@
+package com.quickveggies.db.erp.gl;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+import fy.InvalidFinancialYearRangeException;
+import com.quickveggies.entities.Company;
+import com.sun.javafx.collections.ObservableListWrapper;
+import fy.FinancialYear;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
+
+/**
+ * Project: QuickVeggies File: FinancialYears.java CreatedOn: Date: Oct 23, 2017
+ * Time: 3:31:02 AM
+ *
+ * Description:
+ *
+ * @author George Maroulis <tiger@safari>
+ */
+public class FinancialYears
+{
+    private static  FinancialYears instance;
+    
+    public static FinancialYears getInstance()
+    {
+        return instance;
+    }
+    
+    static FinancialYears getInstance(GeneralLedgerSystem currentGLSystem)
+    {
+        try
+        {
+            if(instance == null)
+                instance = new FinancialYears();
+
+            instance.setGLSystem(currentGLSystem);
+            return instance;
+        }
+        catch(InvalidFinancialYearRangeException exc)
+        {
+            exc.printStackTrace();
+        }
+        return null;
+    }
+    
+    private GeneralLedgerSystem glSystem;
+    private final List<String> datesList;
+    private final ObservableList<FinancialYear> fys;
+    
+    protected FinancialYears()
+    {
+        this.datesList = new ArrayList<String>();
+        this.fys = FXCollections.<FinancialYear>observableArrayList();
+    }
+    
+    public ObservableList<FinancialYear> getFYsList()
+    {
+        return this.fys;
+    }
+    
+    public Company getCompany()
+    {
+        return this.glSystem.getCompany();
+    }
+    
+    public boolean isCurrentFY(FinancialYear fy)
+    {
+        return getCurrentFY().equals(fy);
+    }
+    
+    public FinancialYear getCurrentFY()
+    {
+        if(this.fys.size() != 0)
+            return this.fys.get(fys.size()-1);
+        return null;
+    }
+    
+    public synchronized void update(String date)
+    {
+        try
+        {
+            if(date != null)
+            {
+                this.add(date);
+                String newestDate = this.getNewestDate();
+
+                if(newestDate != null)
+                {
+                    FinancialYear cFY = getCurrentFY();
+                    List<FinancialYear> nextFYs;
+
+                    if(cFY != null)
+                    {
+                        if((nextFYs=getCurrentFY().getNextFYsToDate(LocalDate.parse(newestDate))) != null)
+                            this.fys.addAll(nextFYs);
+                    }
+                    else
+                    {
+                        LocalDate now = LocalDate.now();
+                        LocalDate ldate = LocalDate.parse(date);
+
+                        if(ldate.isBefore(now) || ldate.isEqual(now))
+                            this.fys.addAll(FinancialYear.getFinancialYears(ldate, now));
+                    }
+                }
+                else   
+                    this.fys.addAll(FinancialYear.getFinancialYears(LocalDate.parse(date), LocalDate.now()));
+            }
+        }
+        catch(Exception exc)
+        {
+            exc.printStackTrace(); //Means that the company might not have any Expenditures yet.
+        }
+    }
+    
+    public void add(String newDate)
+    {
+        this.datesList.add(newDate);
+        this.datesList.sort(Comparator.naturalOrder());
+    }
+    
+    public String getNewestDate()
+    {
+        try
+        {
+            return this.datesList.get(this.datesList.size()-1);
+        }
+        catch(IndexOutOfBoundsException exc)
+        {
+            return null;
+        }
+    }
+    
+    public String getOldestDate()
+    {
+        try
+        {
+            return this.datesList.get(0);
+        }
+        catch(IndexOutOfBoundsException exc)
+        {
+            return null;
+        }
+    }
+    
+    private void setGLSystem(GeneralLedgerSystem glSystem) throws InvalidFinancialYearRangeException
+    {
+        this.glSystem = glSystem;
+    }
+    
+    public FinancialYear[] getFYs()
+    {
+        return this.fys.toArray(new FinancialYear[0]);
+    }
+    
+    public FinancialYear getFyByDate(LocalDate date)
+    {
+        for(FinancialYear fy : fys)
+            if(fy.contains(date))
+                return fy;
+        
+        return null;
+    }
+    
+    public int getNumberOfFyWeeksSinceFoundation()
+    {
+        LocalDate now = LocalDate.now();
+        int sum = 0;
+        
+        try
+        {
+            for(FinancialYear fy : fys)
+            {
+                if(fy.contains(now))
+                    sum += fy.getWeekOfFY(now);
+                else
+                    sum += fy.getLastWeekNumber();
+            }
+            
+            return sum;
+        }
+        catch(Exception exc)
+        {
+            exc.printStackTrace();
+        }
+        return -1;
+    }
+    
+    public String[] getFyNames()
+    {
+        String[] names = new String[this.fys.size()];
+        
+        for(int n = 0; n<names.length; n++)
+            names[n] = this.fys.get(n).getFyName();
+        
+        return names;
+    }
+    
+    public String getFyName(int year)
+    {
+        FinancialYear fy = getFyByYear(year);
+        
+        if(fy != null)
+            return fy.getFyName();
+        return null;
+    }
+    
+    public FinancialYear getFyByYear(int year)
+    {
+        for(FinancialYear fy : fys)
+            if(fy.getYear() == year)
+                return fy;
+        
+        return null;
+    }
+    
+    public int getFyWeekNumberByDate(LocalDate date)
+    {
+        FinancialYear fy = getFyByDate(date);
+        
+        try
+        {
+            if(fy != null)
+                return fy.getWeekOfFY(date);
+        }
+        catch(Exception exc)
+        {
+            exc.printStackTrace();
+        }
+        return -1;
+    }
+    
+    public String getColorForWeekByDate(LocalDate date)
+    {
+        FinancialYear fy = getFyByDate(date);
+        
+        if(fy != null)
+            return fy.getColor();
+        return null;
+    }
+    
+    public void addFYChangeListener(ListChangeListener<FinancialYear> listener)
+    {
+        this.fys.addListener(listener);
+    }
+    
+    private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    @Deprecated
+    public void addFYChangeListener(FYChangeListener listener)
+    {
+        this.pcs.addPropertyChangeListener(listener);
+    }
+    
+    public void removeFYChangeListener(FYChangeListener listener)
+    {
+        this.pcs.removePropertyChangeListener(listener);
+    }
+    
+    public static interface FYChangeListener extends PropertyChangeListener
+    {
+        public void fyChange(FYChangeEvent e);
+    }
+    
+    public static class FYChangeEvent extends PropertyChangeEvent
+    {
+        public FYChangeEvent(FinancialYears source, String propertyName, FinancialYear oldValue, FinancialYear newValue)
+        {
+            super(source, propertyName, oldValue, newValue);
+        }
+        
+        @Override
+        public FinancialYears getSource()
+        {
+            return (FinancialYears) super.getSource();
+        }
+        
+        /**
+         * Gets the new value for the property, expressed as an Object.
+         *
+         * @return  The new value for the property, expressed as an Object.
+         *          May be null if multiple properties have changed.
+         */
+        @Override
+        public FinancialYear getNewValue() 
+        {
+            return (FinancialYear) super.getNewValue();
+        }
+
+        /**
+         * Gets the old value for the property, expressed as an Object.
+         *
+         * @return  The old value for the property, expressed as an Object.
+         *          May be null if multiple properties have changed.
+         */
+        @Override
+        public FinancialYear getOldValue() 
+        {
+            return (FinancialYear) super.getOldValue();
+        }
+    }
+    
+//    public static void main(String[] args)
+//    {
+//        FinancialYears fys = new FinancialYears();
+//        fys.update("2017-01-20");
+//        System.out.println("-----------");
+//        for(FinancialYear fy : fys.fys)
+//            System.out.println(fy);
+//        
+//        fys.update("2018-10-20");
+//        System.out.println("-----------");
+//        for(FinancialYear fy : fys.fys)
+//            System.out.println(fy);
+//        
+//        Tes t = new Tes();
+//        
+//        t.add(0);
+//        t.add(1);
+//        t.add(2);
+//        System.out.println(t.get(0));
+//        System.out.println(t.get(2));
+//    }
+//    
+//    private static class Tes extends ObservableListWrapper<Integer>
+//    {
+//        
+//        public Tes(List<Integer> list)
+//        {
+//            super(list);
+//        }
+//        
+//    }
+}

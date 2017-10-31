@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="43">
+        <file>
+            <url>src/com/quickveggies/db/DatabaseClient.java</url>
+            <bookmark id="9">
+                <name/>
+                <line>827</line>
+                <key/>
+            </bookmark>
+            <bookmark id="15">
+                <name/>
+                <line>1753</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/Main.java</url>
+            <bookmark id="5">
+                <name/>
+                <line>53</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/misc/AccountBox.java</url>
+            <bookmark id="3">
+                <name/>
+                <line>88</line>
+                <key/>
+            </bookmark>
+            <bookmark id="4">
+                <name/>
+                <line>89</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/entities/User.java</url>
+            <bookmark id="8">
+                <name/>
+                <line>113</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>db/qvdb_reinstall.sql</url>
+            <bookmark id="6">
+                <name/>
+                <line>1001</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/controller/LoginController.java</url>
+            <bookmark id="13">
+                <name/>
+                <line>96</line>
+                <key/>
+            </bookmark>
+            <bookmark id="25">
+                <name/>
+                <line>186</line>
+                <key/>
+            </bookmark>
+            <bookmark id="26">
+                <name/>
+                <line>187</line>
+                <key/>
+            </bookmark>
+            <bookmark id="23">
+                <name/>
+                <line>192</line>
+                <key/>
+            </bookmark>
+            <bookmark id="22">
+                <name/>
+                <line>193</line>
+                <key/>
+            </bookmark>
+            <bookmark id="24">
+                <name/>
+                <line>194</line>
+                <key/>
+            </bookmark>
+            <bookmark id="20">
+                <name/>
+                <line>195</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/SystemManager.java</url>
+            <bookmark id="12">
+                <name/>
+                <line>36</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/db/erp/gl/charts/ExpensesCharts.java</url>
+            <bookmark id="30">
+                <name/>
+                <line>237</line>
+                <key/>
+            </bookmark>
+            <bookmark id="31">
+                <name/>
+                <line>271</line>
+                <key/>
+            </bookmark>
+            <bookmark id="32">
+                <name/>
+                <line>310</line>
+                <key/>
+            </bookmark>
+            <bookmark id="41">
+                <name/>
+                <line>503</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/controller/dashboard/DashboardController.java</url>
+            <bookmark id="43">
+                <name/>
+                <line>151</line>
+                <key/>
+            </bookmark>
+            <bookmark id="33">
+                <name/>
+                <line>300</line>
+                <key/>
+            </bookmark>
+            <bookmark id="34">
+                <name/>
+                <line>412</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/controller/SettingsController.java</url>
+            <bookmark id="18">
+                <name/>
+                <line>47</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/controller/RegisterController.java</url>
+            <bookmark id="7">
+                <name/>
+                <line>108</line>
+                <key/>
+            </bookmark>
+            <bookmark id="14">
+                <name/>
+                <line>109</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/com/quickveggies/entities/Company.java</url>
+            <bookmark id="16">
+                <name/>
+                <line>45</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/controller/CompanyInfoViewController.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/entities/User.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/Main.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/Security.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/resources/dashboardz.fxml</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/db/erp/gl/ExpendituresList.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/controller/dashboard/DashboardController.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/db/erp/gl/charts/ExpensesCharts.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/controller/dashboard/DSalesTransController.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/controller/dashboard/DExpensTransController.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/Tester.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/db/erp/gl/GeneralLedgerSystem.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/controller/SettingsController.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/UserGlobalParameters.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/controller/RegisterController.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/db/qvdb_reinstall.sql</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/ui/ViewManager.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/db/erp/gl/charts/ArrivalsChart.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/db/DatabaseClient.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/src/com/quickveggies/controller/LoginController.java</file>
+            <file>file:/home/tiger/wrx/Workspaces/NetBeansProjects/Upwork/QuickVeggies/resources/godowndash.fxml</file>
+        </group>
+    </open-files>
+</project-private>

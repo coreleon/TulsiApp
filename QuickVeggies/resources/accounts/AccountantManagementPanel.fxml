@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="usermanPane" prefHeight="358.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quickveggies.controller.AccountantManagementPanelController">
+   <children>
+      <Pane prefHeight="65.0" prefWidth="580.0" style="-fx-background-color: #ecf1f5;">
+         <children>
+            <Label layoutX="32.0" layoutY="9.0" prefHeight="32.0" prefWidth="231.0" text="Add accountant account">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ScrollPane prefHeight="289.0" prefWidth="580.0" style="-fx-background-color: #e8e8e8;">
+         <content>
+            <VBox prefHeight="286.0" prefWidth="574.0" style="-fx-background-color: e0e0e0;">
+               <children>
+                  <HBox fx:id="newAccountantControlPane" prefHeight="74.0" prefWidth="548.0" style="-fx-background-color: white;">
+                     <children>
+                        <StackPane prefHeight="89.0" prefWidth="74.0">
+                           <children>
+                              <ImageView fx:id="newAccountant" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <effect>
+                                    <Glow level="0.13" />
+                                 </effect>
+                                 <image>
+                                    <Image url="@../icons/add-accountant-button.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <GridPane prefHeight="89.0" prefWidth="300.0">
+                           <children>
+                              <Label text="Add accountant" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="275.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="25.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                        <StackPane prefHeight="89.0" prefWidth="156.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="12.0" right="12.0" top="8.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox fx:id="accountantsList" prefHeight="200.0" prefWidth="100.0" />
+               </children>
+            </VBox>
+         </content>
+         <VBox.margin>
+            <Insets left="2.0" />
+         </VBox.margin>
+         <padding>
+            <Insets left="1.0" right="1.0" />
+         </padding>
+      </ScrollPane>
+   </children>
+</VBox>

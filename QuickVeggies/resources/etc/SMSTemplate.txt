@@ -1,0 +1,3 @@
+Dear ${PartyName} your purchases today (Date) is valued 'total amount of the transaction' .
+
+Pay within 3 days and avail a flat 1% cashback.
