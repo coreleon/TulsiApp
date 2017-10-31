@@ -294,6 +294,23 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-#---------QVG---------#
-/QuickVeggies/.git/
+#------------------QVG------------------#
+#              G.Maroulis               #
+#------------------QVG------------------#
+!/QuickVeggies/
+/QuickVeggies/._git/
+/QuickVeggies/._git*
+/QuickVeggies/**/*.class
+/QuickVeggies/build/
+!/QuickVeggies/nbproject/
+!/QuickVeggies/build.xml
+!/QuickVeggies/nbproject/build.fxbuild
+!/QuickVeggies/nbproject/manifest.mf
+!/QuickVeggies/src/**/*.java
+!/QuickVeggies/resources/
+!/QuickVeggies/lib/
+!/QuickVeggies/db/
+!/QuickVeggies/UML_DESIGNS/
+/QuickVeggies/UML/
+#------------------QVG------------------#
 
